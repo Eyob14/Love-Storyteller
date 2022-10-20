@@ -3,14 +3,15 @@ import "./Authentication.css";
 import { useFormik } from "formik";
 import { loginSchema } from "../../schema/schema_index";
 import { useAuth } from "../../context/AuthContext";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import * as routes from "../../constants/routes";
 
 function LogInPage() {
   const { login } = useAuth();
   const navigate = useNavigate();
-  let location = useLocation();
-  let from = location.state?.from?.pathname || routes.HOME;
+  // let location = useLocation();
+  // let from = location.state?.from?.pathname || routes.HOME;
+
   const {
     values,
     errors,
@@ -27,14 +28,13 @@ function LogInPage() {
     validationSchema: loginSchema,
     onSubmit: async (values, actions) => {
       try {
-        login(values.email, values.password);
+        await login(values.email, values.password);
         console.log("user is loggedIn");
-        navigate(from, { replace: true });
       } catch (error) {
         console.log(error.message);
       }
       actions.resetForm();
-      
+      navigate(routes.HOME, { replace: true });
     },
   });
   return (

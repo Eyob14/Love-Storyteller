@@ -22,7 +22,7 @@
 
 nav {
   top: 0;
-  box-shadow: 0px 13px 24px 0px rgba(0, 0, 0, 0.08);
+  box-shadow: 0px 13px 10px 0px rgba(0, 0, 0, 0.07);
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
@@ -35,6 +35,9 @@ nav .navbar-collapse.collapse {
   }
   nav .navbar-collapse.active {
     height: 100vh !important;
+    padding-top: 2.2rem;
+    text-align: center;
+
   }
 }
 nav .navbar-collapse {
@@ -42,3 +45,6 @@ nav .navbar-collapse {
   height: 0 !important;
 }
 
+.profile-name {
+  font-size: 0.8rem;
+}

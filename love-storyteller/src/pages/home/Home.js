@@ -1,15 +1,15 @@
-import React from 'react'
-import "./Home.css"
+import React from "react";
+import "./Home.css";
+import Data from "./Data";
+import Sidebar from "./Sidebar";
 
 function Home() {
   return (
     <div className="home">
-        <h1>Home</h1>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing Elements
-        </p>   
+      <Sidebar />
+      <Data />
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;

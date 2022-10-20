@@ -1,1 +1,142 @@
+.card {
+  border: none;
 
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.card:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background-color: #e1bee7;
+  transform: scaleY(1);
+  transition: all 0.5s;
+  transform-origin: bottom;
+}
+
+.card:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background-color: #8e24aa;
+  transform: scaleY(0);
+  transition: all 0.5s;
+  transform-origin: bottom;
+}
+
+.card:hover::after {
+  transform: scaleY(1);
+}
+
+.fonts {
+  font-size: 13px;
+}
+
+.buttons button:nth-child(1) {
+  border: 1px solid #8e24aa !important;
+  color: #8e24aa;
+  height: 40px;
+}
+
+.buttons button:nth-child(1):hover {
+  border: 1px solid #8e24aa !important;
+  color: #fff;
+  height: 40px;
+  background-color: #8e24aa;
+}
+
+.buttons {
+  padding-top: 2rem;
+}
+
+.buttons button:nth-child(2) {
+  border: 1px solid #8e24aa !important;
+  background-color: #8e24aa;
+  color: #fff;
+  height: 40px;
+}
+
+/*********** Edit profile page ************************/
+
+.card {
+  border: none;
+}
+.image {
+  position: relative;
+}
+.image span {
+  background-color: blue;
+  color: #fff;
+  padding: 6px;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  font-size: 13px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: -0px;
+  right: 0px;
+}
+.user-details h4 {
+  color: blue;
+}
+.ratings {
+  font-size: 30px;
+  font-weight: 600;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  color: #f9b43a;
+}
+.user-details span {
+  text-align: left;
+}
+.inputs label {
+  display: flex;
+  margin-left: 3px;
+  font-weight: 500;
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+.inputs input {
+  font-size: 14px;
+  height: 40px;
+  border: 2px solid #ced4da;
+}
+.inputs input:focus {
+  box-shadow: none;
+  border: 2px solid blue;
+}
+.about-inputs label {
+  display: flex;
+  margin-left: 3px;
+  font-weight: 500;
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+.about-inputs textarea {
+  font-size: 14px;
+  height: 100px;
+  border: 2px solid #ced4da;
+  resize: none;
+}
+.about-inputs textarea:focus {
+  box-shadow: none;
+}
+.btn {
+  font-weight: 600;
+}
+.btn:focus {
+  box-shadow: none;
+}

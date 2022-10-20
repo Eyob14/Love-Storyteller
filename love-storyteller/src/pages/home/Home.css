@@ -1,4 +1,90 @@
 .home {
-    text-align: center;
-    padding-top: 100px;
+  min-height: 100vh;
+  padding-top: 7rem;
+}
+
+.data-container {
+  flex: 1 1;
+  padding: 1.2rem 0px 0px 20px;
+}
+.data-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid lightgray;
+  height: 40px;
+}
+
+.data-header .header-left {
+  display: flex;
+}
+
+.data-grid {
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.data-file {
+  text-align: center;
+  border: 1px solid rgb(204 204 204 / 46%);
+  margin: 10px;
+  min-width: 200px;
+  padding: 10px 0px 0px 0px;
+  border-radius: 5px;
+}
+.data-file svg {
+  font-size: 60px;
+  color: gray;
+}
+.data-file p {
+  border-top: 1px solid #ccc;
+  margin-top: 5px;
+  font-size: 12px;
+  background: whitesmoke;
+  padding: 10px 0px;
+}
+
+.data-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-bottom: 1px solid #ccc;
+  /* padding: 8px; */
+}
+
+.data-list p {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+}
+.data-list p svg {
+  font-size: 22px;
+  margin: 10px;
+}
+.data-list p b {
+  display: flex;
+  align-items: center;
+}
+
+/* for side bar*/
+.sidebar-container {
+  margin-top: 10px;
+}
+
+.sidebar-btn button {
+  background: transparent;
+  border: 1px solid lightgray;
+  display: flex;
+  align-items: center;
+  border-radius: 40px;
+  padding: 5px 10px;
+  box-shadow: 2px 2px 2px #ccc;
+  margin-left: 20px;
+}
+.sidebar-btn button span {
+  font-size: 16px;
+  margin-right: 20px;
+  margin-left: 10px;
 }

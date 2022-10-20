@@ -9,6 +9,7 @@ import LandingPage from "../pages/landing_page/LandingPage";
 import Home from "../pages/home/Home";
 import PrivateRoute from "./PrivateRoute";
 import ProfilePage from "../pages/profile/ProfilePage";
+import EditProfile from "../pages/profile/EditProfile";
 
 const AppRoutes = () => {
   return (
@@ -30,6 +31,14 @@ const AppRoutes = () => {
         element={
           <PrivateRoute>
             <ProfilePage />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path={routes.EDITPROFILE}
+        element={
+          <PrivateRoute>
+            <EditProfile />
           </PrivateRoute>
         }
       />

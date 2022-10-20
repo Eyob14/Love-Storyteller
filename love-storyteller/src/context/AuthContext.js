@@ -1,12 +1,11 @@
 import React, { useContext, useState, useEffect } from "react";
-// import Firebase from "../firebase/index";
 import { auth, firestore } from "../firebase/config";
 
 import {
   onAuthStateChanged,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  signOut,
+  signOut
 } from "firebase/auth";
 import { addDoc, collection } from "firebase/firestore";
 
@@ -22,23 +21,21 @@ export function AuthProvider({ children }) {
 
   const signUp = async (email, password, data) => {
     try {
-      const res = await createUserWithEmailAndPassword(
-        this.auth,
-        email,
-        password
-      );
+      const res = await createUserWithEmailAndPassword(auth, email, password);
       const user = res.user;
       await addDoc(collection(firestore, "users"), {
         uid: user.uid,
         firstName: data.firstName,
         lastName: data.lastName,
+        fileURL: "",
+        about: "",
         authProvider: "local",
         email,
       });
-      return res;
+      console.log(res);
+      console.log("Signup successful");
     } catch (err) {
-      console.log(err.message);
-      return err.message;
+      console.log("Signup failed", err.message);
     }
   };
 

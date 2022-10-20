@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./style-components/Header.css";
 
 import { Link } from "react-router-dom";
@@ -8,19 +8,33 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 
 import { useAuth } from "../context/AuthContext";
-// import { useNavigate } from "react-router-dom";
+import { collection, getDocs } from "firebase/firestore";
+import { firestore } from "../firebase/config";
 
 function Header() {
   const [show, setShow] = useState(true);
   const { currentUser } = useAuth();
-  // const navigate = useNavigate();
+  const [user, setUser] = useState({});
 
-  // console.log("from header", currentUser);
+  useEffect(() => {
+    const getUsers = async () => {
+      const data = await getDocs(collection(firestore, "users"));
+      const users = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+      for (const user of users) {
+        if (user.uid === currentUser.uid) {
+          setUser(user);
+        }
+      }
+    };
+    getUsers();
+  }, []);
   return (
     <nav className="navbar fixed-top navbar-expand-lg navbar-light bg-light">
       <div className="container">
-        {/* style={{color: '#ff2d55', fontSize: '26px'}} */}
-        <Link className="navbar-brand" to={routes.LANDING}>
+        <Link
+          className="navbar-brand"
+          to={currentUser ? routes.HOME : routes.LANDING}
+        >
           <span
             className="text-danger"
             style={{ color: "#ff2d55", fontSize: "28px" }}
@@ -48,12 +62,13 @@ function Header() {
               <>
                 <li className="nav-item px-2" style={{ fontSize: "1.2rem" }}>
                   <Link className="nav-link text-black" to={routes.PROFILE}>
-                    Profile
-                  </Link>
-                </li>
-                <li className="nav-item px-2" style={{ fontSize: "1.2rem" }}>
-                  <Link className="nav-link text-black" to={routes.HOME}>
-                    Home
+                    <img
+                      src="./images/avatar.png"
+                      alt="Profile"
+                      width="45"
+                      className="rounded-circle"
+                    />
+                    <span className="profile-name"> {user.firstName}</span>
                   </Link>
                 </li>
               </>

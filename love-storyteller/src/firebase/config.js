@@ -1,6 +1,8 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
+import { getStorage } from "firebase/storage";
+
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -16,3 +18,14 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const firestore = getFirestore(app);
+export const storage = getStorage(app);
+
+// const firebaseConfig = {
+//   apiKey: "AIzaSyAWF4UwxMClquGDO5tGnFjo5waMlj-I7UI",
+//   authDomain: "love-storyteller-d94f7.firebaseapp.com",
+//   projectId: "love-storyteller-d94f7",
+//   storageBucket: "love-storyteller-d94f7.appspot.com",
+//   messagingSenderId: "93843661971",
+//   appId: "1:93843661971:web:0a3d3d797022340f509966",
+//   measurementId: "G-MFNF8MD1HW",
+// };

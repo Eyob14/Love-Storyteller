@@ -2,15 +2,15 @@ import React from "react";
 import "./Authentication.css";
 import { useFormik } from "formik";
 import { registerSchema } from "../../schema/schema_index";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import * as routes from "../../constants/routes";
 import { useAuth } from "../../context/AuthContext";
 
 function SignUpPage() {
   const { signUp } = useAuth();
   const navigate = useNavigate();
-  let location = useLocation();
-  let from = location.state?.from?.pathname || routes.HOME;
+  // let location = useLocation();
+  // let from = location.state?.from?.pathname || routes.HOME;
 
   const {
     values,
@@ -31,15 +31,14 @@ function SignUpPage() {
     validationSchema: registerSchema,
     onSubmit: async (values, actions) => {
       try {
-        // const firebase = new Firebase();
-        const res = signUp(values.email, values.password, values);
+        const res = await signUp(values.email, values.password, values);
         console.log("user is registered");
         console.log(res);
       } catch (error) {
         console.log(error.message);
       }
       actions.resetForm();
-      navigate(from, { replace: true });
+      navigate(routes.HOME, { replace: true });
     },
   });
   return (
@@ -48,7 +47,7 @@ function SignUpPage() {
         <form onSubmit={handleSubmit}>
           <h3>Sign Up</h3>
           <div className="mb-3">
-            <label htmlFor="firstName">First Name</label>
+            <label htmlFor="firstName">Full Name</label>
             <input
               id="firstName"
               type="text"
