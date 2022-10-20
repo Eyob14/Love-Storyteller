@@ -15,7 +15,7 @@ function Header() {
   const [show, setShow] = useState(true);
   const { currentUser } = useAuth();
   const [user, setUser] = useState({});
-
+  const imageUrl = "./images/avatar.png";
   useEffect(() => {
     const getUsers = async () => {
       const data = await getDocs(collection(firestore, "users"));
@@ -63,7 +63,7 @@ function Header() {
                 <li className="nav-item px-2" style={{ fontSize: "1.2rem" }}>
                   <Link className="nav-link text-black" to={routes.PROFILE}>
                     <img
-                      src="./images/avatar.png"
+                      src={user.fileURL ? user.fileURL : imageUrl}
                       alt="Profile"
                       width="45"
                       className="rounded-circle"

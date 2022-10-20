@@ -3,6 +3,23 @@
   padding-top: 7rem;
 }
 
+.portfolio-menu {
+  padding-left: 20px;
+}
+
+.home-links {
+  color: #000;
+}
+
+.data a:hover {
+  background-color: rgb(154, 152, 152);
+}
+
+a.active {
+  color: red;
+}
+
+
 .data-container {
   flex: 1 1;
   padding: 1.2rem 0px 0px 20px;
@@ -88,3 +105,5 @@
   margin-right: 20px;
   margin-left: 10px;
 }
+
+/*********** gallery styles ************/

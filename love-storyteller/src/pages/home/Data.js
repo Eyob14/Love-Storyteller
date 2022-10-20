@@ -73,7 +73,7 @@ const Data = () => {
             </p>
           </div>
           {files.map((file) => (
-            <div className="data-list" key={file.id}>
+            <div className="data-list data" key={file.id}>
               <a href={file.data.fileURL} target="_blank" rel="noreferrer">
                 <p>
                   <InsertDriveFileIcon /> {file.data.filename}

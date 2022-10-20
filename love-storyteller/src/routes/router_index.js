@@ -10,6 +10,8 @@ import Home from "../pages/home/Home";
 import PrivateRoute from "./PrivateRoute";
 import ProfilePage from "../pages/profile/ProfilePage";
 import EditProfile from "../pages/profile/EditProfile";
+import FileManager from "../pages/home/FileManager";
+import Gallery from "../pages/home/Gallery";
 
 const AppRoutes = () => {
   return (
@@ -25,7 +27,32 @@ const AppRoutes = () => {
             <Home />
           </PrivateRoute>
         }
-      />
+      >
+        <Route
+          index
+          element={
+            <PrivateRoute>
+              <FileManager />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path={routes.FILEMANAGER}
+          element={
+            <PrivateRoute>
+              <FileManager />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path={routes.GALLERY}
+          element={
+            <PrivateRoute>
+              <Gallery />
+            </PrivateRoute>
+          }
+        />
+      </Route>
       <Route
         path={routes.PROFILE}
         element={
